@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Property } from "../../../../sanity.types";
-import { SearchInput } from "./SearchInput";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 

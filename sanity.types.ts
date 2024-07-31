@@ -74,6 +74,17 @@ export type Slug = {
   source?: string;
 };
 
+export type PropertyImage = {
+  asset?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+  };
+  hotspot?: SanityImageHotspot;
+  crop?: SanityImageCrop;
+  _type: "image";
+};
 export type Property = {
   _id: string;
   _type: "property";
@@ -95,17 +106,7 @@ export type Property = {
   furnished?: boolean;
   type?: "house" | "apartment" | "penthouse" | "commercial";
   mainImageUrl?: string;
-  mainImage?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
+  mainImage?: PropertyImage;
   gallery?: Array<{
     asset?: {
       _ref: string;

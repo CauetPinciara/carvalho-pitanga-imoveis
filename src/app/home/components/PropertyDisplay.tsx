@@ -3,13 +3,10 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import Image from "next/image";
 import { Property } from "../../../../sanity.types";
-import { useNextSanityImage } from "next-sanity-image";
-import { sanityClient } from "@/lib/services/sanity-client";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Bed, Bath, Car, Ruler } from "lucide-react";
 import IconWithTooltip from "./IconWithTooltip";
+import CarouselImage from "./CarouselImage";
 
 interface PropertyDisplayProps {
   property: Property;
@@ -22,25 +19,11 @@ const PropertyDisplay = ({ property }: PropertyDisplayProps) => {
       <div className="relative">
         <Carousel className="w-full" loop>
           <CarouselContent>
-            {property?.gallery?.map((image, index) => {
-              const { width, height, ...imageProps } = useNextSanityImage(
-                sanityClient,
-                image
-              );
-
-              return (
-                <CarouselItem key={index}>
-                  <AspectRatio ratio={3 / 2}>
-                    <Image
-                      {...imageProps}
-                      alt={`Photo of ${property.title}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </AspectRatio>
-                </CarouselItem>
-              );
-            })}
+            {property?.gallery?.map((image, index) => (
+              <CarouselItem key={index}>
+                <CarouselImage image={image} title={property.title} />
+              </CarouselItem>
+            ))}
           </CarouselContent>
         </Carousel>
       </div>

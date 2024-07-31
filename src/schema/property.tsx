@@ -1,6 +1,6 @@
 import CurrencyInput from "@/components/studio/moneyInput";
 import { defineField, defineType } from "sanity";
-
+/* eslint-disable react/no-children-prop */
 export const property = defineType({
   name: "property",
   type: "document",
@@ -149,3 +149,4 @@ export const property = defineType({
     }),
   ],
 });
+/* eslint-enable react/no-children-prop */
