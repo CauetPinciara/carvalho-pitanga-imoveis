@@ -1,14 +1,14 @@
 // pages/catalog.js
-import Head from "next/head";
+import CatalogFilter from "./sections/CatalogFilter";
+import { Navbar } from "@/components/layout/Navbar";
+import PropertiesList from "./sections/PropertiesList";
 
 export default function Catalog() {
   return (
     <>
-      <Head>
-        <title>Catálogo de Imóveis</title>
-      </Head>
-      <h1>Catálogo de Imóveis</h1>
-      <p>Lista de imóveis com filtros.</p>
+      <Navbar />
+      <CatalogFilter />
+      <PropertiesList />
     </>
   );
 }
