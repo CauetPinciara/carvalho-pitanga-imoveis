@@ -18,11 +18,11 @@ export interface RouteProps {
 
 const routeList: RouteProps[] = [
   {
-    href: "#features",
+    href: "/catalog",
     label: "Comprar",
   },
   {
-    href: "#testimonials",
+    href: "/catalog",
     label: "Alugar",
   },
 ];

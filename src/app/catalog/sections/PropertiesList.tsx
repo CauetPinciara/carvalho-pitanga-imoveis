@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { sanityClient } from "@/lib/services/sanity-client";
 import PropertyDisplay from "@/app/home/components/PropertyDisplay";
+import Link from "next/link";
 
 const PropertiesList = () => {
   const [properties, setProperties] = useState<any[]>([]);
@@ -43,15 +44,15 @@ const PropertiesList = () => {
 
   return (
     <div className="flex md:flex-row items-center justify-center">
-      <div className="w-[80%] flex flex-col md:flex-row items-center justify-center">
-        <div className="p-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {properties.map((property, index) => (
-              <PropertyDisplay key={index} property={property} />
-            ))}
-          </div>
-          {loading && <p>Loading...</p>}
+      <div className="p-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {properties.map((property, index) => (
+            <Link key={property._id} href={`/properties/${property._id}`}>
+              <PropertyDisplay property={property} />
+            </Link>
+          ))}
         </div>
+        {loading && <p>Loading...</p>}
       </div>
     </div>
   );
